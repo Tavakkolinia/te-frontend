@@ -32,7 +32,7 @@ class SearchForm extends React.Component {
           <div className="col-sm-10">
             <select
               className="form-control"
-              id="propertyTypeSelect"
+              id="propertyType"
             >
               <option value="none">Select an option</option>
               <option value="Small House">Small House</option>
