@@ -1,6 +1,6 @@
 # React Bootstrap
 
-React boilerplate project for Manchester Codes' projects.
+React boilerplate project  for Manchester Codes' projects.
 
 ## Getting Started
 
