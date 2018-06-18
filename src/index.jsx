@@ -1,7 +1,7 @@
 import 'raf/polyfill';
 import React from 'react';
 import { render } from 'react-dom';
+import SearchForm from './searchForm';
 
-render((
-  <h1>Hello World!</h1>
-), document.getElementById('root'));
+
+render(<SearchForm />, document.getElementById('root'));
