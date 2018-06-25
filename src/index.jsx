@@ -1,7 +1,8 @@
 import 'raf/polyfill';
 import React from 'react';
 import { render } from 'react-dom';
-import SearchForm from './searchForm';
+import App from './App';
 
 
-render(<SearchForm />, document.getElementById('root'));
+render(<App />, document.getElementById('root'));
+
