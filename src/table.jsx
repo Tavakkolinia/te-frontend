@@ -16,13 +16,17 @@ const TableResults = () => (
         <TableCell>Contact</TableCell>
       </TableRow>
     </TableHead>
-    
+
     <TableBody>
       <TableRow className="columns">
         <TableCell>Small House</TableCell>
         <TableCell>25%</TableCell>
         <TableCell>£3000</TableCell>
-        <TableCell><button type="submit" className="button" >Enquire</button></TableCell>
+        <TableCell>
+          <button type="button" className="button">Enquire</button>
+
+
+        </TableCell>
       </TableRow>
       <TableRow>
         <TableCell>Big House</TableCell>

@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import TableResults from './table';
 
 
 class SearchForm extends React.Component {
@@ -9,6 +10,7 @@ class SearchForm extends React.Component {
       searchText: '',
     };
     this.handleInputChange = this.handleInputChange.bind(this);
+    this.handleInputSubmit = this.handleInputSubmit.bind(this);
   }
 
 
@@ -16,6 +18,11 @@ class SearchForm extends React.Component {
     this.setState({
       searchText: event.target.value,
     });
+  }
+
+  handleInputSubmit() {
+    console.log()
+    
   }
 
   render() {
@@ -28,7 +35,7 @@ class SearchForm extends React.Component {
           value={this.state.searchText}
         />
         <div className="form-group row">
-          
+
           <div className="col-sm-10">
             <select
               className="form-control"
@@ -43,7 +50,7 @@ class SearchForm extends React.Component {
           </div>
         </div>
         <button onClick={(event) => {
-          event.preventDefault(); this.props.handleSubmit(this.state.searchText);
+          event.preventDefault(); this.props.handleInputSubmit(this.state.searchText);
           }
           }
         >Search
@@ -54,7 +61,7 @@ class SearchForm extends React.Component {
 }
 
 SearchForm.propTypes = {
-  handleSubmit: PropTypes.func.isRequired,
+  handleInputSubmit: PropTypes.func.isRequired,
 };
 
 
