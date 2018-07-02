@@ -5,9 +5,9 @@ import TableHead from '@material-ui/core/TableHead';
 import TableBody from '@material-ui/core/TableBody';
 import TableRow from '@material-ui/core/TableRow';
 import TableCell from '@material-ui/core/TableCell';
-import './table.scss';
+import FormDialog from './modal';
 
-// import TableResults from './table';
+import './table.scss';
 
 
 class SearchForm extends React.Component {
@@ -16,9 +16,12 @@ class SearchForm extends React.Component {
     this.state = {
       searchText: '',
       isHidden: true,
+      open: false,
     };
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleDisplayResults = this.handleDisplayResults.bind(this);
+    this.handleClickOpen = this.handleClickOpen.bind(this);
+    this.handleClose = this.handleClose.bind(this);
   }
 
 
@@ -29,16 +32,26 @@ class SearchForm extends React.Component {
   }
 
   handleDisplayResults(e) {
+    e.preventDefault();
     this.setState({
       isHidden: !this.state.isHidden,
     });
-    e.preventDefault();
+    
+  }
+  handleClickOpen() {
+    this.setState({ open: true });
+    console.log("grftjf");
   }
 
+  handleClose() {
+    this.setState({ open: false });
+  }
+  
   render() {
     return (
-      <form>
+      <div>
         <input
+          className="searchbox"
           type="text"
           placeholder="town or post code"
           onChange={this.handleInputChange}
@@ -59,21 +72,23 @@ class SearchForm extends React.Component {
             </select>
           </div>
         </div>
-        <button onClick={this.handleDisplayResults}>Search
-          {!this.state.isHidden && <TableResults />}
+        <button type="button" className="search" onClick={this.handleDisplayResults}>Search
         </button>
-      </form>
+        {!this.state.isHidden && <TableResults open={this.state.open} onButtonClick={this.handleOpen} onClickOpen={this.handleClickOpen} onClickClose={this.handleClose}  />}
+
+      </div>
     );
   }
 }
-const TableResults = () => (
-  <Table>
+
+const TableResults = props => (
+  <Table className="table" border="1">
     <TableHead>
       <TableRow>
         <TableCell>Property Type</TableCell>
         <TableCell className="percentage">Coverage</TableCell>
         <TableCell className="price">Savings</TableCell>
-        <TableCell>Contact</TableCell>
+        <TableCell className="contact">Contact</TableCell>
       </TableRow>
     </TableHead>
 
@@ -83,7 +98,8 @@ const TableResults = () => (
         <TableCell>25%</TableCell>
         <TableCell>£3000</TableCell>
         <TableCell>
-          <button type="button" className="button">Enquire</button>
+          {/* <button type="submit" className="button" onClick={props.onClickOpen}>Enquire</button> */}
+          <FormDialog open={props.open} onButtonClick={props.handleClickOpen} onClickOpen={props.onClickOpen} onClickClose={props.onClickClose} />
 
 
         </TableCell>
@@ -106,6 +122,7 @@ const TableResults = () => (
 
 SearchForm.propTypes = {
   handleInputSubmit: PropTypes.func.isRequired,
+  
 };
 
 
