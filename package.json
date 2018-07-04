@@ -21,10 +21,13 @@
   },
   "homepage": "https://github.com/MCRcodes/react-bootstrap#readme",
   "dependencies": {
+    "@material-ui/core": "^1.2.3",
+    "axios": "^0.18.0",
     "prop-types": "^15.6.1",
     "raf": "^3.4.0",
     "react": "^16.3.2",
-    "react-dom": "^16.3.2"
+    "react-dom": "^16.3.2",
+    "react-tap-event-plugin": "^3.0.3"
   },
   "devDependencies": {
     "babel-jest": "^22.4.3",
