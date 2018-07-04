@@ -48,7 +48,9 @@ class SearchForm extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="verticalalign">
+
+        <div className="inner">
         <input
           className="searchbox"
           type="text"
@@ -74,6 +76,8 @@ class SearchForm extends React.Component {
         <button type="button" className="search" onClick={this.handleDisplayResults}>Search
         </button>
         {!this.state.isHidden && <TableResults open={this.state.open} onButtonClick={this.handleOpen} onClickOpen={this.handleClickOpen} onClickClose={this.handleClose} />}
+
+</div>
 
       </div>
     );
