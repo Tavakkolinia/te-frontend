@@ -98,22 +98,19 @@ const TableResults = props => (
         <TableCell>£3000</TableCell>
         <TableCell>
           {/* <button type="submit" className="button" onClick={props.onClickOpen}>Enquire</button> */}
-          <FormDialog open={props.open} onButtonClick={props.handleClickOpen} onClickOpen={props.onClickOpen} onClickClose={props.onClickClose} />
-
-
-        </TableCell>
+          <FormDialog open={props.open} onButtonClick={props.handleClickOpen} onClickOpen={props.onClickOpen} onClickClose={props.onClickClose} /></TableCell>
       </TableRow>
       <TableRow>
         <TableCell>Big House</TableCell>
         <TableCell>50%</TableCell>
         <TableCell>£4500</TableCell>
-        <TableCell><button type="submit" className="button">Enquire</button></TableCell>
+        <TableCell><FormDialog open={props.open} onButtonClick={props.handleClickOpen} onClickOpen={props.onClickOpen} onClickClose={props.onClickClose} /></TableCell>
       </TableRow>
       <TableRow>
         <TableCell>Warehouse</TableCell>
         <TableCell>100%</TableCell>
         <TableCell>£5600</TableCell>
-        <TableCell><button type="submit" className="button">Enquire</button></TableCell>
+        <TableCell><FormDialog open={props.open} onButtonClick={props.handleClickOpen} onClickOpen={props.onClickOpen} onClickClose={props.onClickClose} /></TableCell>
       </TableRow>
     </TableBody>
   </Table>
