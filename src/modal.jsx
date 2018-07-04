@@ -23,16 +23,16 @@ const FormDialog = props => (
             To get more details please fill in the form below
         </DialogContentText>
         <form>
-          <input type="text" placeholder="name" />
+          <input type="text" placeholder="full name" />
 
-          <input type="text" placeholder="email" />
+          <input Type="email" placeholder="example@yahoo.com" />
 
-          <input type="text" placeholder="phone number" />
+          <input Type="tel" pattern="0-9" inputMode="numeric" placeholder="phone number" />
         </form>
         <textarea placeholder="message" />
       </DialogContent>
       <DialogActions>
-        <Button onClick={props.onClose} color="primary">
+        <Button onClick={props.onClickClose} color="primary">
             Cancel
         </Button>
         <Button onClick={props.onClose} color="primary">
@@ -45,7 +45,7 @@ const FormDialog = props => (
 );
 FormDialog.propTypes = {
   onClickOpen: PropTypes.func.isRequired,
-  onClose: PropTypes.func.isRequired,
+  onclickClose: PropTypes.func.isRequired,
   open: PropTypes.bool.isRequired,
 };
 

@@ -36,17 +36,16 @@ class SearchForm extends React.Component {
     this.setState({
       isHidden: !this.state.isHidden,
     });
-    
   }
   handleClickOpen() {
     this.setState({ open: true });
-    console.log("grftjf");
+    console.log('grftjf');
   }
 
   handleClose() {
     this.setState({ open: false });
   }
-  
+
   render() {
     return (
       <div>
@@ -74,7 +73,7 @@ class SearchForm extends React.Component {
         </div>
         <button type="button" className="search" onClick={this.handleDisplayResults}>Search
         </button>
-        {!this.state.isHidden && <TableResults open={this.state.open} onButtonClick={this.handleOpen} onClickOpen={this.handleClickOpen} onClickClose={this.handleClose}  />}
+        {!this.state.isHidden && <TableResults open={this.state.open} onButtonClick={this.handleOpen} onClickOpen={this.handleClickOpen} onClickClose={this.handleClose} />}
 
       </div>
     );
@@ -122,7 +121,7 @@ const TableResults = props => (
 
 SearchForm.propTypes = {
   handleInputSubmit: PropTypes.func.isRequired,
-  
+
 };
 
 
