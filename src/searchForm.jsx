@@ -120,10 +120,4 @@ const TableResults = props => (
   </Table>
 );
 
-SearchForm.propTypes = {
-  handleInputSubmit: PropTypes.func.isRequired,
-
-};
-
-
 export { SearchForm, TableResults };
