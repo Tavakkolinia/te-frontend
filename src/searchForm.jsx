@@ -66,37 +66,41 @@ class SearchForm extends React.Component {
       <div className="verticalalign">
 
         <div className="inner">
-        <input
-          className="searchbox"
-          type="text"
-          name="searchText" // Rob
-          placeholder="town or post code"
-          onChange={this.handleInputChange}
-          value={this.state.searchText}
-        />
-        <div className="form-group row">
+          <input
+            className="searchbox"
+            type="text"
+            name="searchText" // Rob
+            placeholder="town or post code"
+            onChange={this.handleInputChange}
+            value={this.state.searchText}
+          />
+          <div className="form-group row">
 
-          <div className="col-sm-10">
-            <select
-              className="form-control"
-              id="propertyType"
-              name="propertyType"
-              onChange={this.handleInputChange} // Rob
-            >
-              <option value="none">Select an option</option>
-              <option value="smallhouse">Small House</option>
-              <option value="normalhouse">Medium House</option>
-              <option value="office">Office</option>
-              <option value="warehouse">Warehouse</option>
-            </select>
+            <div className="col-sm-10">
+              <select
+                className="form-control"
+                id="propertyType"
+                name="propertyType"
+                onChange={this.handleInputChange} // Rob
+              >
+                <option value="none">Select an option</option>
+                <option value="smallhouse">Small House</option>
+                <option value="normalhouse">Medium House</option>
+                <option value="office">Office</option>
+                <option value="warehouse">Warehouse</option>
+              </select>
+            </div>
           </div>
+          <button type="button" className="search" onClick={this.handleDisplayResults}>Search
+          </button>
+          {!this.state.isHidden && <TableResults
+            savings={this.state.savings}
+            open={this.state.open}
+            onButtonClick={this.handleOpen}
+            onClickOpen={this.handleClickOpen}
+            onClickClose={this.handleClose}
+          />}
         </div>
-        <button type="button" className="search" onClick={this.handleDisplayResults}>Search
-        </button>
-        {!this.state.isHidden && <TableResults savings={this.state.savings} open={this.state.open} onButtonClick={this.handleOpen} onClickOpen={this.handleClickOpen} onClickClose={this.handleClose} />}
-
-</div>
-
       </div>
     );
   }
@@ -139,7 +143,7 @@ const TableResults = props => (
 );
 
 SearchForm.propTypes = {
-  handleInputSubmit: PropTypes.func.isRequired,
+  // handleInputSubmit: PropTypes.func.isRequired,
 
 };
 
