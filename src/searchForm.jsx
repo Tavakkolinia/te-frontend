@@ -99,6 +99,8 @@ class SearchForm extends React.Component {
             onButtonClick={this.handleOpen}
             onClickOpen={this.handleClickOpen}
             onClickClose={this.handleClose}
+            postcode={this.state.postcode}
+            propertyType={this.state.propertyType}
           />}
         </div>
       </div>
@@ -124,19 +126,19 @@ const TableResults = props => (
         <TableCell>£{Math.round(props.savings.quarterCoverage * 100) / 100}</TableCell>
         <TableCell>
           {/* <button type="submit" className="button" onClick={props.onClickOpen}>Enquire</button> */}
-          <FormDialog open={props.open} onButtonClick={props.handleClickOpen} onClickOpen={props.onClickOpen} onClickClose={props.onClickClose} /></TableCell>
+          <FormDialog postcode={props.postcode} propertyType={props.propertyType} open={props.open} onButtonClick={props.handleClickOpen} onClickOpen={props.onClickOpen} onClickClose={props.onClickClose} /></TableCell>
       </TableRow>
       <TableRow>
         <TableCell>Big House</TableCell>
         <TableCell>50%</TableCell>
         <TableCell>£{Math.round(props.savings.halfCoverage * 100) / 100}</TableCell>
-        <TableCell><FormDialog open={props.open} onButtonClick={props.handleClickOpen} onClickOpen={props.onClickOpen} onClickClose={props.onClickClose} /></TableCell>
+        <TableCell><FormDialog postcode={props.postcode} propertyType={props.propertyType} open={props.open} onButtonClick={props.handleClickOpen} onClickOpen={props.onClickOpen} onClickClose={props.onClickClose} /></TableCell>
       </TableRow>
       <TableRow>
         <TableCell>Warehouse</TableCell>
         <TableCell>100%</TableCell>
         <TableCell>£{Math.round(props.savings.fullCoverage * 100) / 100}</TableCell>
-        <TableCell><FormDialog open={props.open} onButtonClick={props.handleClickOpen} onClickOpen={props.onClickOpen} onClickClose={props.onClickClose} /></TableCell>
+        <TableCell><FormDialog postcode={props.postcode} propertyType={props.propertyType} open={props.open} onButtonClick={props.handleClickOpen} onClickOpen={props.onClickOpen} onClickClose={props.onClickClose} /></TableCell>
       </TableRow>
     </TableBody>
   </Table>
