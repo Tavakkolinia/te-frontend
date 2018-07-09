@@ -121,21 +121,21 @@ const TableResults = props => (
 
     <TableBody>
       <TableRow className="columns">
-        <TableCell>Small House</TableCell>
+        <TableCell>Option 1</TableCell>
         <TableCell>25%</TableCell>
         <TableCell>£{Math.round(props.savings.quarterCoverage * 100) / 100}</TableCell>
         <TableCell>
-          {/* <button type="submit" className="button" onClick={props.onClickOpen}>Enquire</button> */}
+          
           <FormDialog postcode={props.postcode} propertyType={props.propertyType} open={props.open} onButtonClick={props.handleClickOpen} onClickOpen={props.onClickOpen} onClickClose={props.onClickClose} /></TableCell>
       </TableRow>
       <TableRow>
-        <TableCell>Big House</TableCell>
+        <TableCell>Option 2</TableCell>
         <TableCell>50%</TableCell>
         <TableCell>£{Math.round(props.savings.halfCoverage * 100) / 100}</TableCell>
         <TableCell><FormDialog postcode={props.postcode} propertyType={props.propertyType} open={props.open} onButtonClick={props.handleClickOpen} onClickOpen={props.onClickOpen} onClickClose={props.onClickClose} /></TableCell>
       </TableRow>
       <TableRow>
-        <TableCell>Warehouse</TableCell>
+        <TableCell>Option 3</TableCell>
         <TableCell>100%</TableCell>
         <TableCell>£{Math.round(props.savings.fullCoverage * 100) / 100}</TableCell>
         <TableCell><FormDialog postcode={props.postcode} propertyType={props.propertyType} open={props.open} onButtonClick={props.handleClickOpen} onClickOpen={props.onClickOpen} onClickClose={props.onClickClose} /></TableCell>
