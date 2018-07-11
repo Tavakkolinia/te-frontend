@@ -35,9 +35,9 @@ class SearchForm extends React.Component {
 
   handleDisplayResults(e) {
     e.preventDefault();
-    
+
     let endpoint = 'http://localhost:3000/calculate/';
-    endpoint += this.state.propertyType + '/';
+    endpoint += `${this.state.propertyType}/`;
     endpoint += this.state.searchText;
 
     axios.get(endpoint)
@@ -50,7 +50,6 @@ class SearchForm extends React.Component {
       .catch((error) => {
         console.log(error);
       });
-    
   }
   handleClickOpen() {
     this.setState({ open: true });
@@ -63,47 +62,52 @@ class SearchForm extends React.Component {
 
   render() {
     return (
-      <div className="verticalalign">
+      <body>
+        <h1>ENERGY</h1>       
+        <img src={require('./house.jpg')} className="planet" alt="house" />
+        
+        <div className="verticalalign">
 
-        <div className="inner">
-          <input
-            className="searchbox"
-            type="text"
-            name="searchText" // Rob
-            placeholder="town or post code"
-            onChange={this.handleInputChange}
-            value={this.state.searchText}
-          />
-          <div className="form-group row">
+          <div className="inner">
+            <input
+              className="searchbox"
+              type="text"
+              name="searchText" // Rob
+              placeholder="town or post code"
+              onChange={this.handleInputChange}
+              value={this.state.searchText}
+            />
+            <div className="form-group row">
 
-            <div className="col-sm-10">
-              <select
-                className="form-control"
-                id="propertyType"
-                name="propertyType"
-                onChange={this.handleInputChange} // Rob
-              >
-                <option value="none">Select an option</option>
-                <option value="smallhouse">Small House</option>
-                <option value="normalhouse">Medium House</option>
-                <option value="office">Office</option>
-                <option value="warehouse">Warehouse</option>
-              </select>
+              <div className="col-sm-10">
+                <select
+                  className="form-control"
+                  id="propertyType"
+                  name="propertyType"
+                  onChange={this.handleInputChange}
+                >
+                  <option value="none">Select an option</option>
+                  <option value="smallhouse">Small House</option>
+                  <option value="normalhouse">Medium House</option>
+                  <option value="office">Office</option>
+                  <option value="warehouse">Warehouse</option>
+                </select>
+              </div>
             </div>
+            <button type="button" className="search" onClick={this.handleDisplayResults}>Search
+            </button>
+            {!this.state.isHidden && <TableResults
+              savings={this.state.savings}
+              open={this.state.open}
+              onButtonClick={this.handleOpen}
+              onClickOpen={this.handleClickOpen}
+              onClickClose={this.handleClose}
+              postcode={this.state.postcode}
+              propertyType={this.state.propertyType}
+            />}
           </div>
-          <button type="button" className="search" onClick={this.handleDisplayResults}>Search
-          </button>
-          {!this.state.isHidden && <TableResults
-            savings={this.state.savings}
-            open={this.state.open}
-            onButtonClick={this.handleOpen}
-            onClickOpen={this.handleClickOpen}
-            onClickClose={this.handleClose}
-            postcode={this.state.postcode}
-            propertyType={this.state.propertyType}
-          />}
         </div>
-      </div>
+      </body>
     );
   }
 }
@@ -125,16 +129,17 @@ const TableResults = props => (
         <TableCell>25%</TableCell>
         <TableCell>£{Math.round(props.savings.quarterCoverage * 100) / 100}</TableCell>
         <TableCell>
-          
-          <FormDialog postcode={props.postcode} propertyType={props.propertyType} open={props.open} onButtonClick={props.handleClickOpen} onClickOpen={props.onClickOpen} onClickClose={props.onClickClose} /></TableCell>
+
+          <FormDialog postcode={props.postcode} propertyType={props.propertyType} open={props.open} onButtonClick={props.handleClickOpen} onClickOpen={props.onClickOpen} onClickClose={props.onClickClose} />
+        </TableCell>
       </TableRow>
-      <TableRow>
+      <TableRow className="columns">
         <TableCell>Option 2</TableCell>
         <TableCell>50%</TableCell>
         <TableCell>£{Math.round(props.savings.halfCoverage * 100) / 100}</TableCell>
         <TableCell><FormDialog postcode={props.postcode} propertyType={props.propertyType} open={props.open} onButtonClick={props.handleClickOpen} onClickOpen={props.onClickOpen} onClickClose={props.onClickClose} /></TableCell>
       </TableRow>
-      <TableRow>
+      <TableRow className="columns">
         <TableCell>Option 3</TableCell>
         <TableCell>100%</TableCell>
         <TableCell>£{Math.round(props.savings.fullCoverage * 100) / 100}</TableCell>
@@ -143,11 +148,5 @@ const TableResults = props => (
     </TableBody>
   </Table>
 );
-
-SearchForm.propTypes = {
-  // handleInputSubmit: PropTypes.func.isRequired,
-
-};
-
 
 export { SearchForm, TableResults };
