@@ -49,11 +49,7 @@
     "react-test-renderer": "^16.3.2",
     "sass-loader": "^7.0.1",
     "style-loader": "^0.21.0",
-<<<<<<< HEAD
-    "webpack": "^4.15.1",
-=======
     "webpack": "^4.15.0",
->>>>>>> master
     "webpack-cli": "^2.0.15",
     "webpack-dev-server": "^3.1.3"
   },
