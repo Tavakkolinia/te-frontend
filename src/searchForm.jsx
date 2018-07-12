@@ -130,7 +130,7 @@ class SearchForm extends React.Component {
             onSubmitEnquiry={this.handleSubmitEnquiry}
           />}
         </div>
-      </body>
+      </div>
     );
   }
 }
