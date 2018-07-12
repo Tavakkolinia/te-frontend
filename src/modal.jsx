@@ -10,7 +10,6 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 
 const FormDialog = props => (
   <div>
-    {console.log(props)}
     <Button className="bouton" onClick={props.onClickOpen}>Enquire</Button>
     <Dialog
       open={props.open}
@@ -25,8 +24,8 @@ const FormDialog = props => (
         <form>
           <label htmlFor="txtName" />
           <input id="txtName" type="text" placeholder="full name" />
-          <label for="txtEmail" />
-          <input for="txtEmail" type="email" placeholder="example@yahoo.com" />
+          <label htmlFor="txtEmail" />
+          <input htmlFor="txtEmail" type="email" placeholder="example@yahoo.com" />
           <label htmlFor="txtTel" />
           <input id="txtTel" type="tel" pattern="0-9" inputMode="numeric" placeholder="phone number" />
           <label htmlFor="txtMessage" />
@@ -39,7 +38,6 @@ const FormDialog = props => (
         </Button>
         <Button className="submitButton" onClick={props.onClose} color="primary">
             Submit
-
         </Button>
       </DialogActions>
     </Dialog>
