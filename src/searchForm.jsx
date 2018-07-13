@@ -70,6 +70,8 @@ class SearchForm extends React.Component {
     axios.post(endpoint, Object.assign({}, this.state, fields))
       .then((response) => {
         console.log(response);
+        // return <Redirect to='/url' />;
+        window.location.href = '/thankyou.jsx?need-to-fix-this-redirect';
       })
       .catch((error) => {
         console.log(error);
@@ -130,7 +132,7 @@ class SearchForm extends React.Component {
             onSubmitEnquiry={this.handleSubmitEnquiry}
           />}
         </div>
-      </body>
+      </div>
     );
   }
 }
@@ -139,7 +141,7 @@ const TableResults = props => (
   <Table className="table" border="1">
     <TableHead>
       <TableRow>
-        <TableCell>Property Type {console.log(props)}</TableCell>
+        <TableCell>Property Type</TableCell>
         <TableCell className="percentage">Coverage</TableCell>
         <TableCell className="price">Savings</TableCell>
         <TableCell className="contact">Contact</TableCell>
@@ -152,21 +154,48 @@ const TableResults = props => (
         <TableCell>25%</TableCell>
         <TableCell>£{Math.round(props.savings.quarterCoverage * 100) / 100}</TableCell>
         <TableCell>
-
-          <FormDialog onSubmitEnquiry={props.onSubmitEnquiry} postcode={props.postcode} propertyType={props.propertyType} open={props.open} onButtonClick={props.handleClickOpen} onClickOpen={props.onClickOpen} onClickClose={props.onClickClose} />
+          <FormDialog
+            onSubmitEnquiry={props.onSubmitEnquiry}
+            postcode={props.postcode}
+            propertyType={props.propertyType}
+            open={props.open}
+            onButtonClick={props.handleClickOpen}
+            onClickOpen={props.onClickOpen}
+            onClickClose={props.onClickClose}
+          />
         </TableCell>
       </TableRow>
       <TableRow className="columns">
         <TableCell>Option 2</TableCell>
         <TableCell>50%</TableCell>
         <TableCell>£{Math.round(props.savings.halfCoverage * 100) / 100}</TableCell>
-        <TableCell><FormDialog onSubmitEnquiry={props.onSubmitEnquiry} postcode={props.postcode} propertyType={props.propertyType} open={props.open} onButtonClick={props.handleClickOpen} onClickOpen={props.onClickOpen} onClickClose={props.onClickClose} /></TableCell>
+        <TableCell>
+          <FormDialog
+            onSubmitEnquiry={props.onSubmitEnquiry}
+            postcode={props.postcode}
+            propertyType={props.propertyType}
+            open={props.open}
+            onButtonClick={props.handleClickOpen}
+            onClickOpen={props.onClickOpen}
+            onClickClose={props.onClickClose}
+          />
+        </TableCell>
       </TableRow>
       <TableRow className="columns">
         <TableCell>Option 3</TableCell>
         <TableCell>100%</TableCell>
         <TableCell>£{Math.round(props.savings.fullCoverage * 100) / 100}</TableCell>
-        <TableCell><FormDialog onSubmitEnquiry={props.onSubmitEnquiry} postcode={props.postcode} propertyType={props.propertyType} open={props.open} onButtonClick={props.handleClickOpen} onClickOpen={props.onClickOpen} onClickClose={props.onClickClose} /></TableCell>
+        <TableCell>
+          <FormDialog
+            onSubmitEnquiry={props.onSubmitEnquiry}
+            postcode={props.postcode}
+            propertyType={props.propertyType}
+            open={props.open}
+            onButtonClick={props.handleClickOpen}
+            onClickOpen={props.onClickOpen}
+            onClickClose={props.onClickClose}
+          />
+        </TableCell>
       </TableRow>
     </TableBody>
   </Table>
