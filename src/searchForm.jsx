@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import  { Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import Table from '@material-ui/core/Table';
 import TableHead from '@material-ui/core/TableHead';
@@ -7,6 +8,7 @@ import TableBody from '@material-ui/core/TableBody';
 import TableRow from '@material-ui/core/TableRow';
 import TableCell from '@material-ui/core/TableCell';
 import FormDialog from './FormDialog';
+
 
 import './styles.scss';
 import energy from '../energy.svg';
@@ -19,6 +21,7 @@ class SearchForm extends React.Component {
       postcode: '',
       isHidden: true,
       open: false,
+      thankyou: false,
     };
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleDisplayResults = this.handleDisplayResults.bind(this);
@@ -71,8 +74,9 @@ class SearchForm extends React.Component {
     axios.post(endpoint, Object.assign({}, this.state, fields))
       .then((response) => {
         console.log(response);
-        // return <Redirect to='/url' />;
-        window.location.href = '/thankyou.jsx?need-to-fix-this-redirect';
+        this.setState({ thankyou: true });
+        return <Redirect to="/thankyou" />;
+        // window.location.href = '/thankyou.jsx?need-to-fix-this-redirect';
       })
       .catch((error) => {
         console.log(error);
@@ -80,6 +84,9 @@ class SearchForm extends React.Component {
   }
 
   render() {
+    if (this.state.thankyou === true) {
+      return <Redirect to="/thankyou" />;
+    }
     return (
       <div>
         <h1 id="energy"><strong>ENERGY <img src={energy} alt="solar panels" width="1156" height="171" /></strong></h1>
