@@ -13,7 +13,7 @@ const thankyou = props => (
     >
       <h1>Thank you</h1>
       <DialogActions>
-        <Button className="okButton" onClick={props.onClickClose} color="primary">
+        <Button className="okButton" onClick={props.onClickClose} onSubmit={alert('thank you')} color="primary">
             Ok
         </Button>
       </DialogActions>

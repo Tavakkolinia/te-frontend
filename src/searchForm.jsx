@@ -10,6 +10,7 @@ import FormDialog from './FormDialog';
 
 import './styles.scss';
 import energy from '../energy.svg';
+import logo2 from '../logo2.png';
 
 
 class SearchForm extends React.Component {
@@ -82,7 +83,7 @@ class SearchForm extends React.Component {
   render() {
     return (
       <div>
-        <h1 id="energy"><strong>ENERGY <img src={energy} alt="solar panels" width="1156" height="171" /></strong></h1>
+        <h1 id="energy"><img src="logo2.png" alt="solar panels" width="356" height="271" /><br/><strong>G.E.POWER</strong></h1>
         <div className="panels" />
           
         
@@ -138,10 +139,10 @@ const TableResults = props => (
   <Table className="table" border="1">
     <TableHead>
       <TableRow>
-        <TableCell>Property Type</TableCell>
-        <TableCell className="percentage">Coverage</TableCell>
-        <TableCell className="price">Savings</TableCell>
-        <TableCell className="contact">Contact</TableCell>
+        <TableCell className="property">Property Type</TableCell>
+        <TableCell className="property">Coverage</TableCell>
+        <TableCell className="property">Savings</TableCell>
+        <TableCell className="property">Contact</TableCell>
       </TableRow>
     </TableHead>
 
