@@ -1,9 +1,10 @@
 body {
-    background-color: white;
+    background-color:white;
+
 }
 #energy {
     top: 10px;
-    color: black;
+    color:black;
     text-align: center; 
     text-shadow: grey 30px;
        
@@ -20,10 +21,11 @@ body {
 }
 .searchbox {
     padding: 7px;
-    position: relative;
-    background-color: white;
+    position: centre;
+    background-color:WHITE;
     width: 35%;
-    border: 2px solid black;
+    border: 0px solid;
+    text-align: center; 
     
 }
 .verticalalign {
@@ -46,7 +48,7 @@ body {
  }
  
  .button4:hover{
-     background-color: green !important;
+     background-color: teal !important;
      color: #FFF;
  }
  .columns:hover{
