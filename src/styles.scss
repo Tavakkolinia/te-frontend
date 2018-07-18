@@ -1,9 +1,10 @@
 body {
-    background-color: white;
+    background-color:white;
+
 }
 #energy {
     top: 10px;
-    color: rgb(4, 3, 27);
+    color:black;
     text-align: center; 
     text-shadow: grey 30px;
            
@@ -20,10 +21,11 @@ body {
 }
 .searchbox {
     padding: 7px;
-    position: relative;
-    background-color: white;
+    position: centre;
+    background-color:WHITE;
     width: 35%;
-    border: 2px solid black;
+    border: 0px solid;
+    text-align: center; 
     
 }
 .verticalalign {
@@ -45,15 +47,15 @@ body {
     position: absolute;
     bottom: 0;
     left: 0;
-    background-color: rgb(103, 139, 131) !important;
+    background-color: teal !important;
  }
  
  .button4:hover{
-     background-color: green !important;
+     background-color: teal !important;
      color: #FFF;
  }
  .columns:hover{
-    background-color: rgb(174, 184, 181) !important;
+    background-color: grey !important;
     color: #FFF;
 }
 .cancelButton {
