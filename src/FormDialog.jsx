@@ -51,6 +51,7 @@ class FormDialog extends React.Component {
             <button id="submitButton" type="button" className="search" onClick={() => props.onSubmitEnquiry(this.state)} color="primary">
               Enquire
             </button>
+           
           </DialogActions>
         </Dialog>
       </div>);

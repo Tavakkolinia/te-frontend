@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import  { Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import Table from '@material-ui/core/Table';
 import TableHead from '@material-ui/core/TableHead';
@@ -8,8 +9,10 @@ import TableRow from '@material-ui/core/TableRow';
 import TableCell from '@material-ui/core/TableCell';
 import FormDialog from './FormDialog';
 
+
 import './styles.scss';
 import energy from '../energy.svg';
+import logo2 from '../logo2.png';
 
 
 class SearchForm extends React.Component {
@@ -19,6 +22,7 @@ class SearchForm extends React.Component {
       postcode: '',
       isHidden: true,
       open: false,
+      thankyou: false,
     };
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleDisplayResults = this.handleDisplayResults.bind(this);
@@ -71,8 +75,9 @@ class SearchForm extends React.Component {
     axios.post(endpoint, Object.assign({}, this.state, fields))
       .then((response) => {
         console.log(response);
-        // return <Redirect to='/url' />;
-        window.location.href = '/thankyou.jsx?need-to-fix-this-redirect';
+        this.setState({ thankyou: true });
+        return <Redirect to="/thankyou" />;
+        // window.location.href = '/thankyou.jsx?need-to-fix-this-redirect';
       })
       .catch((error) => {
         console.log(error);
@@ -80,6 +85,9 @@ class SearchForm extends React.Component {
   }
 
   render() {
+    if (this.state.thankyou === true) {
+      return <Redirect to="/thankyou" />;
+    }
     return (
       <div>
         <h1 id="energy"><img src="final logo.PNG" alt="solar panels" width="440" height="310" /><br /><strong>G.E. POWER</strong></h1>
@@ -138,10 +146,10 @@ const TableResults = props => (
   <Table className="table" border="1">
     <TableHead>
       <TableRow>
-        <TableCell>Property Type</TableCell>
-        <TableCell className="percentage">Coverage</TableCell>
-        <TableCell className="price">Savings</TableCell>
-        <TableCell className="contact">Contact</TableCell>
+        <TableCell className="property">Property Type</TableCell>
+        <TableCell className="property">Coverage</TableCell>
+        <TableCell className="property">Savings</TableCell>
+        <TableCell className="property">Contact</TableCell>
       </TableRow>
     </TableHead>
 
