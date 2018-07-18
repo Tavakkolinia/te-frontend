@@ -90,7 +90,7 @@ class SearchForm extends React.Component {
     }
     return (
       <div>
-        <h1 id="energy"><img src="logo2.png" alt="solar panels" width="356" height="271" /><br/><strong>G.E.POWER</strong></h1>
+        <h1 id="energy"><img src="final logo.png" alt="solar panels" width="356" height="271" /><br/><strong>G.E.POWER</strong></h1>
         <div className="panels" />
           
         
