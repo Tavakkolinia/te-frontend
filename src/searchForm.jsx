@@ -90,10 +90,10 @@ class SearchForm extends React.Component {
     }
     return (
       <div>
-        <h1 id="energy"><img src="final logo.PNG" alt="solar panels" width="440" height="310" /><br /><strong>G.E. POWER</strong></h1>
+        <h1 id="energy"><img src="logo2.png" alt="solar panels" width="356" height="271" /><br/><strong>G.E.POWER</strong></h1>
         <div className="panels" />
-
-
+          
+        
         <div className="verticalalign">
 
           <div className="inner">
@@ -101,7 +101,7 @@ class SearchForm extends React.Component {
               className="searchbox"
               type="text"
               name="postcode" // Rob
-              placeholder="town or Postcode"
+              placeholder="town or post code"
               onChange={this.handleInputChange}
               value={this.state.postcode}
             />
@@ -115,8 +115,8 @@ class SearchForm extends React.Component {
                   onChange={this.handleInputChange}
                 >
                   <option value="none">Select an option</option>
-                  <option value="small house">Small House</option>
-                  <option value="normal house">Medium House</option>
+                  <option value="smallhouse">Small House</option>
+                  <option value="normalhouse">Medium House</option>
                   <option value="office">Office</option>
                   <option value="warehouse">Warehouse</option>
                 </select>
